@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PotentiallyDestructiveLambdaActionsRequiringAllAccessResourceSpecForSlsEventDeploy",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:CreateEventSourceMapping",
+                "lambda:DeleteEventSourceMapping",
+                "lambda:UpdateEventSourceMapping"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ResourceBoundEventsInvokingLambdaForSlsEventDeploy",
+            "Effect": "Allow",
+            "Action": "events:*",
+            "Resource": "arn:aws:events:*:*:rule/*-*"
+        },
+        {
+            "Sid": "ResourceBoundLambdaWritersForSlsEventDeploy",
+            "Effect": "Allow",
+            "Action": "lambda:AddPermission",
+            "Resource": "arn:aws:lambda:*:*:function:*-*"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "NonDestructiveCoreReaderActionsUsedThroughoutServerless",
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:Describe*",
+                "cloudformation:DescribeStackResources",
+                "cloudformation:List*",
+                "cloudformation:Get*",
+                "cloudformation:PreviewStackUpdate",
+                "lambda:Get*",
+                "lambda:List*",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "s3:GetObject",
+                "s3:List*",
+                "apigateway:GET",
+                "iam:List*",
+                "iam:Get*",
+                "iam:Simulate*",
+                "kinesis:Describe*",
+                "kinesis:List*",
+                "dynamodb:Describe*",
+                "dynamodb:List*",
+                "sqs:List*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

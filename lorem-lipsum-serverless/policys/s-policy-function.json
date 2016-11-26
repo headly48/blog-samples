@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PotentiallyDestructiveLambdaActionsRequiringAllAccessResourceSpecForSlsFunctionDeploy",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:CreateFunction"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ResourceBoundLambdaExecutionRolePassingForSlsFunctionDeploy",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::*:role/*-*"
+        },
+        {
+            "Sid": "ResourceBoundLambdaWritersForSlsFunctionDeploy",
+            "Effect": "Allow",
+            "Action": "lambda:*",
+            "Resource": "arn:aws:lambda:*:*:function:*-*"
+        }
+    ]
+}

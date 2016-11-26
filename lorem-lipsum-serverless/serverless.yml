@@ -1,0 +1,16 @@
+service: lorem-lipsum-serverless
+
+frameworkVersion: "=1.2.1"
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  memorySize: 128 
+
+functions:
+  getLoremIpsum:
+    handler: handler.getLoremIpsum
+    events:
+       - http:
+           path: lorem
+           method: get

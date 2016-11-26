@@ -1,0 +1,8 @@
+{
+  "name": "lorem-lipsum-serverless",
+  "version": "1.0.0",
+  "description": "Api to return lorem lipsum text",
+  "dependencies": {
+    "lorem-ipsum": "1.0.3"
+  }
+}

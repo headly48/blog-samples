@@ -1,0 +1,35 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ResourceBoundCloudFormationWritersForSlsResourcesDeploy",
+            "Effect": "Allow",
+            "Action": "cloudformation:*",
+            "Resource": "arn:aws:cloudformation:*:*:stack/*-*"
+        },
+        {
+            "Sid": "ResourceBoundIamWritersForSlsFunctionDeploy",
+            "Effect": "Allow",
+            "Action": "iam:*",
+            "Resource": "arn:aws:iam::*:role/*-*"
+        },
+        {
+            "Sid": "ResourceBoundKinesisStreamWritersForSlsResourcesDeploy",
+            "Effect": "Allow",
+            "Action": "kinesis:*",
+            "Resource": "arn:aws:kinesis:*:*:stream/*-*"
+        },
+        {
+            "Sid": "ResourceBoundDynamoDbStreamWritersForSlsResourcesDeploy",
+            "Effect": "Allow",
+            "Action": "dynamodb:*",
+            "Resource": "arn:aws:dynamodb:*:*:table/*-*"
+        },
+        {
+            "Sid": "ResourceBoundSqsClientForSqsResourcesDeploy",
+            "Effect": "Allow",
+            "Action": "sqs:*",
+            "Resource": "arn:aws:sqs:*:*:*-*"
+        }
+    ]
+}
