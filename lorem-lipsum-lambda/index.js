@@ -1,9 +1,10 @@
 const loremIpsum = require('lorem-ipsum');
 
-
-
 exports.getLoremIpsum = function (event, context, callback) {
+	//getLoremIpsum
+	//console.log(loremIpsum());
+	console.log('Inside getLoremIpsum handler');
 
 
-	console.log(loremIpsum());
+	callback(null, {message: loremIpsum()});
 } 
