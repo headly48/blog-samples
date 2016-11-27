@@ -55,4 +55,23 @@ module.exports.createUser = (event, context, callback) => {
   });
 };
 
+module.exports.deleteUser = (event, context, callback) => {
+
+  let requestBody = JSON.parse(event.body);
+
+  if (!event.pathParameters.userId || !uuidvalidator(event.pathParameters.userId)) {
+
+    return callback(null, {statusCode: 400, body: JSON.stringify({error: 'UserId is invalid'})});
+  }
+
+  userService.deleteUser(event.pathParameters.userId).then(function () {
+
+    callback(null, {statusCode: 204});
+  }).catch(function (error) {
+    console.log('Error creating user. ' + error);
+    callback(error);
+  });
+};
+
+
 

@@ -23,6 +23,14 @@ functions:
           method: get
     environment:
       usersTableName: user-skills-CRUD-usersTable-${opt:stage}
+  deleteUser:
+    handler: index.deleteUser
+    events:
+      - http:
+          path: users/{userId}
+          method: delete
+    environment:
+      usersTableName: user-skills-CRUD-usersTable-${opt:stage}
   createUser:
     handler: index.createUser
     events:

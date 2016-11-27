@@ -54,6 +54,18 @@ class UserService {
       return {userId: userId};
     });
   }
+
+  deleteUser(userId) {
+
+    var params = {
+        TableName: this.tableName,
+        Key: {
+          userId: { S: userId}
+        }
+    };
+
+    return this.dynamoDb.deleteItem(params).promise();
+  }
 }
 
 module.exports = UserService;
