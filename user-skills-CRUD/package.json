@@ -1,0 +1,10 @@
+{
+  "name": "user-skills-crud",
+  "version": "1.0.0",
+  "description": "Api to create/read/delete/update users with skills",
+  "dependencies": {
+    "aws-sdk": "2.7.7",
+    "uuid-validate": "0.0.2",
+    "node-uuid": "1.4.7"
+  }
+}
