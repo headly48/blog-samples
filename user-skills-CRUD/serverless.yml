@@ -39,6 +39,14 @@ functions:
           method: post
     environment:
       usersTableName: user-skills-CRUD-usersTable-${opt:stage}
+  updateUser:
+    handler: index.updateUser
+    events:
+      - http:
+          path: users/{userId}
+          method: put
+    environment:
+      usersTableName: user-skills-CRUD-usersTable-${opt:stage}
 resources:          
   Resources:
     usersTable:
@@ -69,6 +77,7 @@ resources:
                     - dynamodb:ListTables
                     - dynamodb:DeleteItem
                     - dynamodb:Query
+                    - dynamodb:UpdateItem
                   Resource: arn:aws:dynamodb:*:*:table/user-skills-CRUD*
             Roles:
               - Ref: IamRoleLambdaExecution

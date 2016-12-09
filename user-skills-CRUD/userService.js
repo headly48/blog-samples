@@ -11,8 +11,6 @@ class UserService {
 
   getUser (userId) {
     
-    let tableData = null;
-
     var params = {
         TableName: this.tableName,
         Key: { // a map of attribute name to AttributeValue for all primary key attributes
@@ -27,9 +25,37 @@ class UserService {
     return this.dynamoDb.getItem(params).promise().then(function (data) {
       let user = {};
       user.userId = data.Item.userId.S;
+      user.skills = data.Item.skills.SS;
 
       return user;
     });
+  }
+
+  updateUser (userId, userDetails) {
+
+    var params = {
+        TableName: this.tableName,
+        Key: { // a map of attribute name to AttributeValue for all primary key attributes
+          userId: { S: userId}
+        },
+        AttributeUpdates: {}
+    };
+
+    if (userDetails.email) {
+      params.AttributeUpdates.email = {
+        Action: 'PUT',
+        Value: {S: userDetails.email}
+      }
+    }
+
+    if (userDetails.skills) {
+      params.AttributeUpdates.skills = {
+        Action: 'PUT',
+        Value: {SS: userDetails.skills}
+      }
+    }
+
+    return this.dynamoDb.updateItem(params).promise();
   }
 
   createUser(userDetails) {
