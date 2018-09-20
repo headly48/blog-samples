@@ -1,0 +1,19 @@
+{
+  "name": "blog-samples-s3-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "dependencies": {
+    "serverless-offline": "^3.25.12",
+    "serverless-plugin-typescript": "^1.1.5"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.13",
+    "aws-lambda": "^0.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
