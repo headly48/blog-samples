@@ -50,7 +50,7 @@ package:
     exclude:
       - node_modules/**/*
     include:
-      handler.ts
+      - /src/**/*.ts
  # include:
  #   - include-me.js
  #   - include-me-dir/**
@@ -60,7 +60,7 @@ package:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: src/handler.hello
 
     events:
       - http:
